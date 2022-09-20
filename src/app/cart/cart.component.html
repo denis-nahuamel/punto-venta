@@ -1,6 +1,6 @@
-<div class="card-container">
+<div class="card-container" *ngIf="orderGenerated===false">
     <!--search by code and use ocr-->
-    <div>
+    <div class="buttons">
         <div class="search-container">
             <mat-form-field  appearance="outline">
                 <mat-label>Código o Título</mat-label>
@@ -9,12 +9,18 @@
             <button mat-raised-button color="primary" style="height: 100%; top: 0.7rem"
             (click)="searchBook()">Buscar</button>
         </div>
-        <!-- <div>
-            <div id="qr-reader" style="width: 600px"></div>
-            <input type="file" id="qr-input-file" accept="image/*" capture>
-        </div> -->
+        <div>
+            <button mat-raised-button color="primary" style=" bottom: 0.6rem"
+            (click)="generarOrden()">Generar Orden</button>
+        </div>
     </div>
     <div>
         <app-book-cart [books]="orders" (bookDeleted)="onBookDeleted($event)"></app-book-cart>
     </div>
+    <div class="total">
+        Total: {{total}}
+    </div>
+</div>
+<div class="card-container">
+    <app-generate-order *ngIf="orderGenerated===true" [order]="orders" [total]="total"></app-generate-order>
 </div>

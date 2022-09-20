@@ -9,11 +9,17 @@ const HOST = environment.baseUrl
 export class CartService implements OnInit {
 
   constructor(private http: HttpClient) { }
-  
+
   ngOnInit(): void {
 
   }
-  getBooks():Observable<any>{
-    return this.http.get(HOST)
+  getBooks(): Observable<any> {
+    return this.http.get(HOST + "products")
   }
+  sendOrder(order: any): Observable<Response> {
+    return this.http.post<Response>(
+      HOST + "order", order
+    );
+  }
+
 }

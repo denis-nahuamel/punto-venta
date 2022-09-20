@@ -9,3 +9,16 @@
     width: 40rem;
     padding: 10px;
 }
+.total{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "https://apis-prueba.pruebasgt.com/api/products"
+  baseUrl: "https://apis-prueba.pruebasgt.com/api/"
 };
 
 /*
