@@ -1,14 +1,18 @@
-<div >
+<div class="card-container">
     <!--search by code and use ocr-->
     <div>
-        <div>
+        <div class="search-container">
             <mat-form-field  appearance="outline">
                 <mat-label>Código o Título</mat-label>
                 <input type="text" matInput [formControl]="searchBookCtrl" >
             </mat-form-field>
-            <button mat-raised-button color="accent" (click)="searchBook()">Buscar</button>
+            <button mat-raised-button color="primary" style="height: 100%; top: 0.7rem"
+            (click)="searchBook()">Buscar</button>
         </div>
-        <div></div>
+        <!-- <div>
+            <div id="qr-reader" style="width: 600px"></div>
+            <input type="file" id="qr-input-file" accept="image/*" capture>
+        </div> -->
     </div>
     <div>
         <app-book-cart [books]="orders" (bookDeleted)="onBookDeleted($event)"></app-book-cart>

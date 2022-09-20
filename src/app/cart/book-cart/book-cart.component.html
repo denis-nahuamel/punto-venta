@@ -1,11 +1,18 @@
 <div class="book-container">
-    <mat-card *ngFor="let book of books" >
-        <mat-card-title>{{book.name}}</mat-card-title>
-        <mat-card-content>{{book.description}}</mat-card-content>
-        <mat-card-actions>
-            <button mat-fab color="primary" (click)="deleteBook(book)">
-                <mat-icon>delete</mat-icon>
-            </button>
-        </mat-card-actions>
+    <mat-card *ngFor="let book of books" class="card">
+        <div>
+            <mat-card-title>{{book.name}}</mat-card-title>
+            <mat-card-content>Precio: {{book.price}}</mat-card-content>
+        </div>
+        <div>
+            <mat-card-actions>
+                <button mat-fab color="primary" (click)="deleteBook(book)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-actions>
+        </div>
     </mat-card>
+    <div class="total">
+        Total: {{total}}
+    </div>
 </div>
