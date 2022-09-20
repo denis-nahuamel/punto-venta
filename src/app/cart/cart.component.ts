@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Book } from '../models/book.model';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
+  searchBookCtrl = new FormControl();
+  books = [] as Book[];
 
-  ngOnInit(): void {
+  getBooks() {
+    return this.cartService.getBooks();
   }
+  ngOnInit(): void {
+    this.getBooks().subscribe((response) => this.books = response.data)
+  }
+  searchBook(){
+    let value = this.searchBookCtrl.value;
+    this.books.filter(book=>{
+      if(value===book.sku || book.name.includes(value)===true) 
+        console.log("book", book.name)
+    })
+  }
+
 
 }
