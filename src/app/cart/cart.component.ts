@@ -25,13 +25,18 @@ export class CartComponent implements OnInit {
 
   searchBook(){
     let value = this.searchBookCtrl.value;
-    console.log("hello",this.books)
     this.books.filter(book=>{
-      if(value===book.sku || book.name.includes(value)===true) {
+      if(value===book.sku || book.name.toLocaleLowerCase().includes(value)===true) {
         this.orders.push(book)
+        console.log(this.orders)
       }
     })
   }
+  onBookDeleted(book: any) {
+    let index = this.orders.indexOf(book);
+    this.orders.splice(index, 1);
+  }
+  
 
 
 }
