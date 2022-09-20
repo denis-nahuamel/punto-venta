@@ -4,3 +4,16 @@
     gap: 1rem;
     margin: 1rem;
 }
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem
+}
+.total{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    padding: 1rem;
+    gap: 1rem;
+}

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Book } from '../models/book.model';
 import { CartService } from './cart.service';
-
+import {Html5Qrcode} from "html5-qrcode"
+import {Html5QrcodeScanner} from "html5-qrcode"
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -20,7 +21,13 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getBooks().subscribe((response) => this.books = response.data)
+    this.getBooks().subscribe((response) => this.books = response.data);
+    const html5QrcodeScanner = new Html5QrcodeScanner(
+      'reader',
+      undefined,
+      /* verbose= */ false
+    );
+    html5QrcodeScanner.render(this.onScanSuccess, this.onScanFailure);
   }
 
   searchBook(){
@@ -37,6 +44,15 @@ export class CartComponent implements OnInit {
     this.orders.splice(index, 1);
   }
   
+  onScanSuccess(qrMessage: any) {
+    // handle the scanned code as you like, for example:
+    console.log(`QR matched = ${qrMessage}`);
+  }
 
+  onScanFailure(error: any) {
+    // handle scan failure, usually better to ignore and keep scanning.
+    // for example:
+    console.warn(`QR error = ${error}`);
+  }
 
 }

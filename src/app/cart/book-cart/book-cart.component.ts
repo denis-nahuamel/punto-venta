@@ -12,6 +12,7 @@ export class BookCartComponent implements OnInit {
   @Input() books: Book[] = [];
   @Output()
   bookDeleted: EventEmitter<any> = new EventEmitter();
+  total = 0;
   ngOnInit(): void {
   }
   deleteBook(book: any){
