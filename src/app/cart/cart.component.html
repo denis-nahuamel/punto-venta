@@ -3,11 +3,14 @@
     <div>
         <div>
             <mat-form-field  appearance="outline">
-                <mat-label>Buscar...</mat-label>
+                <mat-label>Código o Título</mat-label>
                 <input type="text" matInput [formControl]="searchBookCtrl" >
             </mat-form-field>
-            <button mat-raised-button color="accent" (click)="searchBook()">Accent</button>
+            <button mat-raised-button color="accent" (click)="searchBook()">Buscar</button>
         </div>
         <div></div>
+    </div>
+    <div>
+        <app-book-cart [books]="orders" ></app-book-cart>
     </div>
 </div>

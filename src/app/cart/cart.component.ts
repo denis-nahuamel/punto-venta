@@ -11,20 +11,25 @@ import { CartService } from './cart.service';
 export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
+  orders = [] as Book[];
   searchBookCtrl = new FormControl();
   books = [] as Book[];
 
   getBooks() {
     return this.cartService.getBooks();
   }
+
   ngOnInit(): void {
     this.getBooks().subscribe((response) => this.books = response.data)
   }
+
   searchBook(){
     let value = this.searchBookCtrl.value;
+    console.log("hello",this.books)
     this.books.filter(book=>{
-      if(value===book.sku || book.name.includes(value)===true) 
-        console.log("book", book.name)
+      if(value===book.sku || book.name.includes(value)===true) {
+        this.orders.push(book)
+      }
     })
   }
 

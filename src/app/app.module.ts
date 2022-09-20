@@ -10,10 +10,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
+import { BookCartComponent } from './cart/book-cart/book-cart.component';
+import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon'
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent
+    CartComponent,
+    BookCartComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +28,8 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
+    MatCardModule,
     HttpClientModule  ],
   providers: [],
   bootstrap: [AppComponent]
