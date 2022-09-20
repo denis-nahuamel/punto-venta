@@ -12,12 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { BookCartComponent } from './cart/book-cart/book-cart.component';
 import {MatCardModule} from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { GenerateOrderComponent } from './cart/generate-order/generate-order.component'
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
-    BookCartComponent
+    BookCartComponent,
+    GenerateOrderComponent
   ],
   imports: [
     BrowserModule,

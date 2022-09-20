@@ -1,0 +1,10 @@
+<form (ngSubmit)="send()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="name">
+    </mat-form-field>
+    <div class="total" >
+        <div>Total: {{total}}</div>
+        <div><button mat-raised-button type="submit" color="primary">Generar</button></div>
+    </div>
+</form>
